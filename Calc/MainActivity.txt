@@ -1,0 +1,32 @@
+package com.example.add2num;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void onClick(View view) {
+
+        EditText et1 = findViewById(R.id.num1);
+        EditText et2 = findViewById(R.id.num2);
+        String strA = et1.getText().toString();
+        String strB = et2.getText().toString();
+        if (strA.equals("") || strB.equals("")) {
+        }else {
+            int sum = Integer.parseInt(strA) + Integer.parseInt(strB);
+            TextView tvSum = findViewById(R.id.sum);
+            tvSum.setText(Integer.toString(sum));
+        }
+
+    }
+}
