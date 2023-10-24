@@ -54,8 +54,7 @@ class Serial extends Entity{
 
         Serial serial = (Serial) o;
 
-        return this.getName().equals(serial.getName()) && this.series == serial.series
-                && this.time == serial.time;
+        return this.getName().equals(serial.getName()) && this.series == serial.series && this.time == serial.time;
 
     }
 
@@ -144,11 +143,18 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Film film1 = new Film(60);
+        Film film2 = new Film(40);
+        Film film3 = new Film(90);
+
+        Cartoon cartoon1 = new Cartoon(20, 5);
+        Cartoon cartoon2 = new Cartoon(40, 15);
+        Cartoon cartoon3 = new Cartoon(10, 15);
 
         Serial serial1 = new Serial(20, 50);
         Serial serial2 = new Serial(24, 50);
         Serial serial3 = serial1;
-        
+
         System.out.println("serial1 == serial2 - " + serial1.equals(serial2) + ", serial1 == serial3 - "
                 + serial1.equals(serial3) + "\n");
 
@@ -164,6 +170,33 @@ public class Main {
         serials.sort(Serial::compareTo);
 
         for (Serial serial : serials) System.out.println(serial);
+        System.out.println("\n");
+
+        ArrayList<Cartoon> cartoons = new ArrayList<>();
+        cartoons.add(cartoon1);
+        cartoons.add(cartoon2);
+        cartoons.add(cartoon3);
+
+        for (Cartoon cartoon : cartoons) System.out.println(cartoon);
+        System.out.println("\n");
+
+        cartoons.sort(Cartoon::compareTo);
+
+        for (Cartoon cartoon : cartoons) System.out.println(cartoon);
+        System.out.println("\n");
+
+        ArrayList<Film> films = new ArrayList<>();
+        films.add(film1);
+        films.add(film2);
+        films.add(film3);
+
+        for (Film film : films) System.out.println(film);
+        System.out.println("\n");
+
+        films.sort(Film::compareTo);
+
+        for (Film film : films) System.out.println(film);
 
     }
 }
+
